@@ -1,4 +1,0 @@
-[
-  { "nome": "Alice", "email": "alice@mail.com", "password": "123456", "administrador": "true" },
-  { "nome": "Bob", "email": "bob@mail.com", "password": "123456", "administrador": "false" }
-]

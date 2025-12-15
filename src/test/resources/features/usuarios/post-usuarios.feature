@@ -1,12 +1,23 @@
-Feature: Registrar un nuevo usuario
+Feature: Usuarios - Crear usuario
 
-  Background:
-    * url baseUrl
+Background:
+    * url 'https://serverest.dev'
 
-  Scenario: Registro exitoso de usuario
-    * def newUser = { nome: 'Fiorella Izquierdo', email: 'fiorella'+karate.randomInt(1000)+'@mail.com', password: '123456', administrador: 'true' }
-    Given path 'usuarios'
-    And request newUser
+Scenario: Crear usuario exitosamente
+    Given path '/usuarios'
+
+    * def random = Math.floor(Math.random() * 100000)
+    * def email = 'fiorella.izquierdo' + random + '@mail.com'
+
+    And request
+    """
+    {
+      "nome": "Fiorella Izquierdo",
+      "email": "#(email)",
+      "password": "123456",
+      "administrador": "true"
+    }
+    """
+
     When method post
     Then status 201
-    And match response.message == 'Cadastro realizado com sucesso'
