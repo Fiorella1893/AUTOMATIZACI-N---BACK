@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"features\/usuarios\/delete-usuario-id[1:7]","start":1765844209893,"end":1765844210143,"title":"features\/usuarios\/delete-usuario-id[1:7] 19:16:49.893-19:16:50.143 Eliminación exitosa","className":"failed"},{"id":2,"group":1,"content":"features\/usuarios\/get-usuario-id[1:7]","start":1765844210731,"end":1765844210737,"title":"features\/usuarios\/get-usuario-id[1:7] 19:16:50.731-19:16:50.737 Buscar usuario existente","className":"failed"},{"id":3,"group":1,"content":"features\/usuarios\/get-usuarios[1:6]","start":1765844210884,"end":1765844211840,"title":"features\/usuarios\/get-usuarios[1:6] 19:16:50.884-19:16:51.840 Listado de usuarios exitoso"},{"id":4,"group":1,"content":"features\/usuarios\/post-usuarios[1:6]","start":1765844211949,"end":1765844211952,"title":"features\/usuarios\/post-usuarios[1:6] 19:16:51.949-19:16:51.952 Registro exitoso de usuario","className":"failed"},{"id":5,"group":1,"content":"features\/usuarios\/put-usuario-id[1:7]","start":1765844212087,"end":1765844212090,"title":"features\/usuarios\/put-usuario-id[1:7] 19:16:52.087-19:16:52.090 Actualización exitosa","className":"failed"},{"id":6,"group":1,"content":"features\/usuarios\/put-usuario-id[2:23]","start":1765844212102,"end":1765844212675,"title":"features\/usuarios\/put-usuario-id[2:23] 19:16:52.102-19:16:52.675 Error al actualizar usuario con email existente"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
